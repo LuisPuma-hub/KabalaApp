@@ -1,3 +1,4 @@
+import 'package:app/pages/opciones.dart';
 import 'package:flutter/material.dart';
 
  class Home extends StatefulWidget {
@@ -14,11 +15,12 @@ import 'package:flutter/material.dart';
    @override
    void dispose() {
      nameController.dispose();
+     lastController.dispose();
      super.dispose();
    }
 
    DateTime selectDate= DateTime.now();
-   int day=00,month=00,year=00;
+   int day,month,year;
    String name,lastname;
 
    @override
@@ -45,7 +47,6 @@ import 'package:flutter/material.dart';
            ],
          ),
          centerTitle: true,
-
        ),
        body: SingleChildScrollView(
          child: Container(
@@ -134,7 +135,7 @@ import 'package:flutter/material.dart';
                SizedBox(height: 10,),
                Row(
                  mainAxisAlignment: MainAxisAlignment.center,
-                 children: [
+                 children: <Widget>[
                    Column(
                      mainAxisSize: MainAxisSize.min,
                      children: <Widget>[
@@ -192,7 +193,13 @@ import 'package:flutter/material.dart';
                    children: <Widget>[
                      RaisedButton(
                        onPressed: (){
-                         Navigator.pushNamed(context, '/calculo');
+                         setState(() {
+                           name=nameController.text;
+                           lastname=lastController.text;
+                         });
+                         Navigator.of(context).push(MaterialPageRoute(
+                           builder: (context) => opciones(name,lastname,day,month,year),
+                         ));
                        },
                        child: Row(
                          mainAxisAlignment: MainAxisAlignment.center,
@@ -232,16 +239,12 @@ import 'package:flutter/material.dart';
        lastDate: DateTime(2021),
      );
      print('$selectDate');
-     setState(() {
-       day=selectDate.day;
-       month=selectDate.month;
-       year=selectDate.year;
-       name=nameController.text;
-       lastname=lastController.text;
-     });
      if (picked != null && picked != selectDate)
        setState(() {
          selectDate = picked;
+         day=selectDate.day;
+         month=selectDate.month;
+         year=selectDate.year;
        });
      print('$day-$month-$year');
      print('$name $lastname');
