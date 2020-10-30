@@ -68,7 +68,7 @@ import 'package:flutter/material.dart';
                  children: <Widget>[
                    Expanded(
                      child: Image(
-                       image: NetworkImage('https://media.istockphoto.com/vectors/vector-illustration-of-fortune-cat-vector-id841188606?k=6&m=841188606&s=170667a&w=0&h=7TSD4kwEgjikYO-hTeuQUi_wh8dr94asBgslHCX44Bk='),
+                       image: AssetImage('assets/cabala.jpg'),
                        height: 350,
                      ),
                    )

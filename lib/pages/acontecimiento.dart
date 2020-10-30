@@ -114,7 +114,7 @@ class _acontecimiento_diaState extends State<acontecimiento_dia> {
     int longitudNombreCompleto = longitudSinEspacios(name) + longitudSinEspacios(lastname);
     int sumaLongituNombreCompleto = sumaDeCifras(longitudNombreCompleto);
     int tonicaFundamental = sumaDeCifras(urgenciaInterior + sumaLongituNombreCompleto);
-    int acontecimientoDia=acont(_diceface,dayCabale(day, month, year, tonicaFundamental));
+    int acontecimientoDia=acont(sumaDeCifras(sumaDeCifras(int.parse(yr))),dayCabale(day, month, year, tonicaFundamental));
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.indigo[800],

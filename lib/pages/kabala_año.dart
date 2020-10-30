@@ -130,7 +130,7 @@ import 'package:app/pages/home.dart';
                children: <Widget>[
                  Expanded(
                    child: Image(
-                     image: NetworkImage('https://static.vecteezy.com/system/resources/previews/000/663/123/non_2x/year-of-the-rat-chinese-new-year-2020-vector.jpg'),
+                     image: AssetImage('assets/2020.jpg'),
                      height: 271,
                    ),
                  )
