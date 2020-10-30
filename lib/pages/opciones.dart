@@ -1,6 +1,8 @@
 import 'package:app/pages/kabala_año.dart';
+import 'package:app/pages/tonica_fundamental.dart';
+import 'package:app/pages/urgencia.dart';
 import 'package:flutter/material.dart';
-import 'package:app/pages/home.dart';
+import 'package:app/pages/Tonica_Dia.dart';
 
 class opciones extends StatefulWidget {
   final String name;
@@ -49,9 +51,9 @@ class _opcionesState extends State<opciones> {
                     children: <Widget>[
                       RaisedButton(
                         onPressed: () {
-                          setState(() {
-                            print('${widget.year}');
-                          });
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => urgencia(widget.day,widget.month,widget.year),
+                          ));
                         }, // Refer step 3
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -80,7 +82,11 @@ class _opcionesState extends State<opciones> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       RaisedButton(
-                        onPressed: () {}, // Refer step 3
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => tonica_fundamental(widget.day,widget.month,widget.year,widget.name,widget.lastname),
+                          ));
+                        }, // Refer step 3
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
@@ -108,7 +114,11 @@ class _opcionesState extends State<opciones> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       RaisedButton(
-                        onPressed: () {}, // Refer step 3
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => tonica_dia(widget.day,widget.month,widget.year,widget.name,widget.lastname),
+                          ));
+                        }, // Refer step 3
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
@@ -136,7 +146,8 @@ class _opcionesState extends State<opciones> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       RaisedButton(
-                        onPressed: () {}, // Refer step 3
+                        onPressed: () {
+                        }, // Refer step 3
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[

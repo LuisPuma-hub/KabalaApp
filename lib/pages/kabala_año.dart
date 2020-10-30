@@ -95,7 +95,11 @@ import 'package:app/pages/home.dart';
        sum5 = a + b;
      };
    }
-
+   void main(){
+     int asd=dasa();
+     print(asd);
+   }
+    int dasa() =>10;
    @override
    Widget build(BuildContext context) {
      return Scaffold(
@@ -106,7 +110,7 @@ import 'package:app/pages/home.dart';
            mainAxisAlignment: MainAxisAlignment.center,
            children: <Widget>[
              Text(
-               'KABALA DEL AÑO',
+               'CÁBALA DEL AÑO',
                style: TextStyle(
                  color: Colors.white,
                ),
@@ -159,7 +163,6 @@ import 'package:app/pages/home.dart';
                            children: <Widget>[
                              Text('${year}'),
                              Text('${sum}'),
-                             Text('${num}')
                        ],
                      )
                      ),
@@ -184,7 +187,6 @@ import 'package:app/pages/home.dart';
                            children: <Widget>[
                              Text('${year1}'),
                              Text('${sum1}'),
-                             Text('${num1}'),
                            ],
                          )
                      ),
@@ -216,7 +218,6 @@ import 'package:app/pages/home.dart';
                            children: <Widget>[
                              Text('${year2}'),
                              Text('${sum2}'),
-                             Text('${num2}'),
                            ],
                          )
                      ),
@@ -241,7 +242,6 @@ import 'package:app/pages/home.dart';
                            children: <Widget>[
                              Text('${year3}'),
                              Text('${sum3}'),
-                             Text('${num3}')
                            ],
                          )
                      ),
@@ -271,9 +271,12 @@ import 'package:app/pages/home.dart';
                          child: Column(
                            mainAxisAlignment: MainAxisAlignment.center,
                            children: <Widget>[
-                             Text('${year4}'),
+                             Text('Año: ${year4}',
+                               style: TextStyle(
+                                 fontSize: 15,
+                               ),
+                             ),
                              Text('${sum4}'),
-                             Text('${num4}'),
                            ],
                          )
                      ),
@@ -298,7 +301,6 @@ import 'package:app/pages/home.dart';
                            children: <Widget>[
                              Text('${year5}'),
                              Text('${sum5}'),
-                             Text('${num5}'),
                            ],
                          )
                      ),
@@ -307,7 +309,6 @@ import 'package:app/pages/home.dart';
                  SizedBox(width: 15,),
                ],
              ),
-
            ],
          ),
        ),

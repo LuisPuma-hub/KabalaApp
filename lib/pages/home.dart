@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
  
  class _HomeState extends State<Home> {
 
-
    final nameController = TextEditingController();
    final lastController = TextEditingController();
 
@@ -22,7 +21,11 @@ import 'package:flutter/material.dart';
    DateTime selectDate= DateTime.now();
    int day,month,year;
    String name,lastname;
-
+   void initState() {
+    day = selectDate.day;
+    month=selectDate.month;
+    year=selectDate.year;
+   }
    @override
    Widget build(BuildContext context) {
      return Scaffold(
