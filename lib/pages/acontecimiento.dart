@@ -1,35 +1,54 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'dart:math';
 
-class tonica_fundamental extends StatefulWidget{
+import 'package:flutter/material.dart';
+class acontecimiento_dia extends StatefulWidget {
   final int day,month,year;
   final String name, lastname;
-  tonica_fundamental(this.day,this.month,this.year,this.name,this.lastname);
+
+  acontecimiento_dia(this.day,this.month,this.year,this.name,this.lastname);
   @override
-  _tonica_fundamentalState createState() => _tonica_fundamentalState();
+  _acontecimiento_diaState createState() => _acontecimiento_diaState();
 }
+class _acontecimiento_diaState extends State<acontecimiento_dia> {
+  String name,lastname,dy,mt,yr;
+  DateTime selectDate= DateTime.now();
+  int day,month,year,ran;
+  static var _random = new Random();
+  var _diceface = _random.nextInt(8) +1 ;
 
-class _tonica_fundamentalState extends State<tonica_fundamental> {
-  String name;
-  String lastName;
-  String dia;
-  String mes;
-  String year;
-
-  @override
   void initState() {
-    // TODO: implement initState
     name=widget.name;
-    lastName=widget.lastname;
-    dia=widget.day.toString();
-    mes=widget.month.toString();
-    year=widget.year.toString();
+    lastname=widget.lastname;
+    dy=widget.day.toString();
+    mt=widget.month.toString();
+    yr=widget.year.toString();
+    day = selectDate.day;
+    month=selectDate.month;
+    year=selectDate.year;
+  }
+  int dayCabale(int day, int most, int year, int tf) {
+    int sum,d,m,y,total;
+    y=suma(year);
+    m=suma(most);
+    d=suma(day);
+    total=suma(d+m+y);
+    total=suma(total+tf);
+    return total;
+  }
+  int acont (int random,int tonica_dia){
+    return suma(tonica_dia+ random);
+  }
+  int suma(int numero) {
+    int suma =0;
+    int num;
+    for(int i =0;i < numero.toString().length ; i++){
+      num = int.parse(numero.toString().substring(i, i+1));
+      suma +=num;
+    }
+    return suma;
   }
   @override
   Widget build(BuildContext context) {
-
-
-
     int longitudSinEspacios(String palabra){
       int contador = 0;
       for(int i = 0; i < palabra.length; i++){
@@ -91,47 +110,37 @@ class _tonica_fundamentalState extends State<tonica_fundamental> {
       else
         return 'Indefinido';
     }
-
-    int urgenciaInterior = sumaDeCifras(sumaDeCifras(sumaDeCifras(int.parse(dia))) + sumaDeCifras(sumaDeCifras(int.parse(mes))) + sumaDeCifras(sumaDeCifras(int.parse(year))));
-    int longitudNombreCompleto = longitudSinEspacios(name) + longitudSinEspacios(lastName);
+    int urgenciaInterior = sumaDeCifras(sumaDeCifras(sumaDeCifras(int.parse(dy))) + sumaDeCifras(sumaDeCifras(int.parse(mt))) + sumaDeCifras(sumaDeCifras(int.parse(yr))));
+    int longitudNombreCompleto = longitudSinEspacios(name) + longitudSinEspacios(lastname);
     int sumaLongituNombreCompleto = sumaDeCifras(longitudNombreCompleto);
     int tonicaFundamental = sumaDeCifras(urgenciaInterior + sumaLongituNombreCompleto);
-
+    int acontecimientoDia=acont(_diceface,dayCabale(day, month, year, tonicaFundamental));
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.indigo[800],
-        centerTitle: true,
+        titleSpacing: 10,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'URGENCIA INTERIOR',
+              'Acontecimiento del Dia',
               style: TextStyle(
                 color: Colors.white,
               ),
             ),
-            SizedBox(width: 50,)
+            SizedBox(width: 50,),
           ],
         ),
+        centerTitle: true,
       ),
-
-      body: Container(
-        padding: EdgeInsets.only(
-            top: 100,
-            bottom: 20,
-            right: 20,
-            left: 20
-        ),
-        decoration: BoxDecoration(
-          color: Colors.white,
-        ),
-        child: Column(
+      body: new Container(
+        child: new Column(
           children: <Widget>[
             Row(
               children: <Widget>[
                 Expanded(
                   child: Image(
-                    image: AssetImage(img(tonicaFundamental)),
+                    image: AssetImage(img(acontecimientoDia)),
                     //image: NetworkImage('https://futooro.com/wp-content/uploads/2018/11/numero-8-numerologia.png'),
                     height: 250,
                   ),
@@ -141,6 +150,60 @@ class _tonica_fundamentalState extends State<tonica_fundamental> {
 
             ),
             SizedBox(height: 25,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    RaisedButton(
+                      onPressed: () => _selectDate(context), // Refer step 3
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Icon(
+                            Icons.perm_contact_calendar_outlined,
+                            color: Colors.white,
+                          ),
+                          SizedBox(width: 10,),
+                          Text(
+                            'Fecha a Investigar',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                      color: Colors.indigo[800],
+                    ),
+                  ],
+                )
+              ],
+            ),
+            SizedBox(height: 20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(width:15,),
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    height: 50,
+                    decoration:
+                    BoxDecoration(
+                        color: Colors.indigo[100],
+                        borderRadius: BorderRadius.circular(15),
+                        boxShadow: [
+                          BoxShadow(color: Colors.indigo[800], spreadRadius: 0.75),
+                        ]
+                    ),
+                    child: Center(child: Text('${selectDate.day}/${selectDate.month}/${selectDate.year}')),
+                  ),
+                ),
+                SizedBox(width:15,),
+              ],
+            ),
+            SizedBox(height: 20,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget> [
@@ -165,7 +228,7 @@ class _tonica_fundamentalState extends State<tonica_fundamental> {
                             RichText(
                               textAlign: TextAlign.center,
                               text: TextSpan(
-                                text: sig(tonicaFundamental),
+                                text: sig(acontecimientoDia),
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
@@ -181,59 +244,34 @@ class _tonica_fundamentalState extends State<tonica_fundamental> {
                 SizedBox(width: 15,),
               ],
             ),
-          ],
-        ),
 
-      ),
-    );
-  }
-}
-
-//CODIGO ORIGINAL
-
-/*
-import 'package:flutter/material.dart';
-
-class SecondPage extends StatelessWidget{
-  const SecondPage({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-
-    SecondPageArguments arguments = ModalRoute.of(context).settings.arguments;
-
-    int longitudSinEspacios(String palabra){
-      int contador = 0;
-      for(int i = 0; i < palabra.length; i++){
-        if(palabra.substring(i, i+1) != " "){
-          contador++;
-        }
-      }
-      return contador;
-    }
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Segunda pantalla"),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(arguments.name),
-            Text(arguments.lastName),
-            Text(longitudSinEspacios(arguments.name).toString()),
-            Text(longitudSinEspacios(arguments.lastName).toString()),
           ],
         ),
       ),
     );
+
+  }
+  _selectDate(BuildContext context) async {
+
+    final DateTime picked = await showDatePicker(
+      context: context,
+      initialDate: selectDate, // Refer step 1
+      firstDate: DateTime(1900),
+      lastDate: DateTime(2021),
+    );
+    print('$selectDate');
+
+    if (picked != null && picked != selectDate)
+      setState(() {
+        selectDate = picked;
+        day=selectDate.day;
+        month=selectDate.month;
+        year=selectDate.year;
+        _diceface = _random.nextInt(8) +1 ;
+        print('$day-$month-$year');
+        print('$_diceface');
+
+      });
+
   }
 }
-
-class SecondPageArguments{
-  String name;
-  String lastName;
-  SecondPageArguments({this.name, this.lastName});
-}
-*/

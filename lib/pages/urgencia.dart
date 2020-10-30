@@ -28,10 +28,10 @@ class _urgenciaState extends State<urgencia> {
   int suma(int numero) {
       int suma =0;
       int num;
-        for(int i =0;i < numero.toString().length ; i++){
-          num = int.parse(numero.toString().substring(i, i+1));
-          suma +=num;
-        }
+      for(int i =0;i < numero.toString().length ; i++){
+        num = int.parse(numero.toString().substring(i, i+1));
+        suma +=num;
+      }
       return suma;
   }
   String img(int valor){
@@ -95,6 +95,7 @@ class _urgenciaState extends State<urgencia> {
                 color: Colors.white,
               ),
             ),
+            SizedBox(width: 50,)
           ],
         ),
       ),

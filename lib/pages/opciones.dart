@@ -3,6 +3,7 @@ import 'package:app/pages/tonica_fundamental.dart';
 import 'package:app/pages/urgencia.dart';
 import 'package:flutter/material.dart';
 import 'package:app/pages/Tonica_Dia.dart';
+import 'package:app/pages/acontecimiento.dart';
 
 class opciones extends StatefulWidget {
   final String name;
@@ -31,6 +32,7 @@ class _opcionesState extends State<opciones> {
                 color: Colors.white,
               ),
             ),
+            SizedBox(width: 50,)
           ],
         ),
         centerTitle: true,
@@ -147,6 +149,9 @@ class _opcionesState extends State<opciones> {
                     children: <Widget>[
                       RaisedButton(
                         onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => acontecimiento_dia(widget.day,widget.month,widget.year,widget.name,widget.lastname),
+                          ));
                         }, // Refer step 3
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,

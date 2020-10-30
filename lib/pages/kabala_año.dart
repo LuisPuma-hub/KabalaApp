@@ -95,11 +95,6 @@ import 'package:app/pages/home.dart';
        sum5 = a + b;
      };
    }
-   void main(){
-     int asd=dasa();
-     print(asd);
-   }
-    int dasa() =>10;
    @override
    Widget build(BuildContext context) {
      return Scaffold(
@@ -110,11 +105,12 @@ import 'package:app/pages/home.dart';
            mainAxisAlignment: MainAxisAlignment.center,
            children: <Widget>[
              Text(
-               'CÁBALA DEL AÑO',
+               'Cábala del Año',
                style: TextStyle(
                  color: Colors.white,
                ),
              ),
+             SizedBox(width: 50,)
            ],
          ),
        ),
@@ -161,10 +157,21 @@ import 'package:app/pages/home.dart';
                          child: Column(
                            mainAxisAlignment: MainAxisAlignment.center,
                            children: <Widget>[
-                             Text('${year}'),
-                             Text('${sum}'),
-                       ],
-                     )
+                             Text('Año: ${year1}',
+                               style: TextStyle(
+                               fontWeight: FontWeight.bold,
+                               fontSize: 18,
+                               color: Colors.black,
+                             ),
+                             ),
+                             Text('Número: ${sum1}',
+                               style: TextStyle(
+                                 fontWeight: FontWeight.bold,
+                                 fontSize: 18,
+                                 color: Colors.black,
+                               ),),
+                           ],
+                         )
                      ),
                    ),
                  ),
@@ -185,8 +192,18 @@ import 'package:app/pages/home.dart';
                          child: Column(
                            mainAxisAlignment: MainAxisAlignment.center,
                            children: <Widget>[
-                             Text('${year1}'),
-                             Text('${sum1}'),
+                             Text('Año: ${year2}',
+                               style: TextStyle(
+                                 fontWeight: FontWeight.bold,
+                                 fontSize: 18,
+                                 color: Colors.black,
+                               ),),
+                             Text('Número ${sum2}',
+                               style: TextStyle(
+                                 fontWeight: FontWeight.bold,
+                                 fontSize: 18,
+                                 color: Colors.black,
+                               ),),
                            ],
                          )
                      ),
@@ -216,45 +233,25 @@ import 'package:app/pages/home.dart';
                          child: Column(
                            mainAxisAlignment: MainAxisAlignment.center,
                            children: <Widget>[
-                             Text('${year2}'),
-                             Text('${sum2}'),
+                             Text('Año: ${year3}',
+                                 style: TextStyle(
+                                   fontWeight: FontWeight.bold,
+                                   fontSize: 18,
+                                   color: Colors.black,
+                                 ),
+                             ),
+                             Text('Número: ${sum3}',
+                               style: TextStyle(
+                                 fontWeight: FontWeight.bold,
+                                 fontSize: 18,
+                                 color: Colors.black,
+                               ),),
                            ],
                          )
                      ),
                    ),
                  ),
                  SizedBox(width: 20,),
-                 Expanded(
-                   child: Container(
-                     padding: EdgeInsets.all(10),
-                     height: 100,
-                     decoration:
-                     BoxDecoration(
-                         color: Colors.indigo[100],
-                         borderRadius: BorderRadius.circular(15),
-                         boxShadow: [
-                           BoxShadow(color: Colors.indigo[800], spreadRadius: 0.75),
-                         ]
-                     ),
-                     child: Center(
-                         child: Column(
-                           mainAxisAlignment: MainAxisAlignment.center,
-                           children: <Widget>[
-                             Text('${year3}'),
-                             Text('${sum3}'),
-                           ],
-                         )
-                     ),
-                   ),
-                 ),
-                 SizedBox(width: 15,),
-               ],
-             ),
-             SizedBox(height: 20,),
-             Row(
-               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-               children: <Widget> [
-                 SizedBox(width: 15,),
                  Expanded(
                    child: Container(
                      padding: EdgeInsets.all(10),
@@ -273,16 +270,31 @@ import 'package:app/pages/home.dart';
                            children: <Widget>[
                              Text('Año: ${year4}',
                                style: TextStyle(
-                                 fontSize: 15,
+                                 fontWeight: FontWeight.bold,
+                                 fontSize: 18,
+                                 color: Colors.black,
                                ),
                              ),
-                             Text('${sum4}'),
+                             Text('Número: ${sum4}',
+                               style: TextStyle(
+                                 fontWeight: FontWeight.bold,
+                                 fontSize: 18,
+                                 color: Colors.black,
+                               ),
+                             ),
                            ],
                          )
                      ),
                    ),
                  ),
-                 SizedBox(width: 20,),
+                 SizedBox(width: 15,),
+               ],
+             ),
+             SizedBox(height: 20,),
+             Row(
+               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+               children: <Widget> [
+                 SizedBox(width: 100,),
                  Expanded(
                    child: Container(
                      padding: EdgeInsets.all(10),
@@ -299,14 +311,26 @@ import 'package:app/pages/home.dart';
                          child: Column(
                            mainAxisAlignment: MainAxisAlignment.center,
                            children: <Widget>[
-                             Text('${year5}'),
-                             Text('${sum5}'),
+                             Text('Año: ${year5}',
+                               style: TextStyle(
+                                 fontWeight: FontWeight.bold,
+                                 fontSize: 18,
+                                 color: Colors.black,
+                               ),
+                             ),
+                             Text('Número: ${sum5}',
+                               style: TextStyle(
+                                 fontWeight: FontWeight.bold,
+                                 fontSize: 18,
+                                 color: Colors.black,
+                               ),
+                             ),
                            ],
                          )
                      ),
                    ),
                  ),
-                 SizedBox(width: 15,),
+                 SizedBox(width: 100,),
                ],
              ),
            ],
